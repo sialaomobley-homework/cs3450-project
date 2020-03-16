@@ -1,0 +1,14 @@
+from django.shortcuts import render, get_object_or_404
+from .models import Tool
+
+
+def tools(request):
+    tools_list = Tool.objects.order_by('name')
+    context = {'tools_list': tools_list}
+    return render(request, 'tools/homepage.html', context)
+
+
+def tool_view(request, tool_id):
+    tool = get_object_or_404(Tool, pk=tool_id)
+    return render(request, 'tools/tool.html', {'tool': tool})
+# Create your views here.
