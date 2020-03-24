@@ -8,24 +8,25 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<!--Header-->
+<!--header-->
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Swift-Taylor Tool Co-Op</a>
     </div>
     <!--Navbar links-->
-	<ul class="nav navbar-nav">
-      <li><a href="http://127.0.0.1:8000/">Home</a></li>
-      <li><a href="http://127.0.0.1:8000/toolview">Tools</a></li>
-      <li class="active"><a href="http://127.0.0.1:8000/about/">About</a></li>
-	  <li><a href="http://127.0.0.1:8000/contact/">Contact</a></li>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'homepage' %}">Home</a></li>
+      <li><a href="{% url 'tools' %}">Tools</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+    <li><a href="{% url 'contact' %}">Contact</a></li>
+    <li><a href="{% url 'blog' %}">Blog</a></li>
     </ul>
-	<!--User Management Buttons-->
-	<ul class="nav navbar-nav navbar-right">
-	<li><a href="http://127.0.0.1:8000/register/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-	<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-	</ul>
+    <!--User Management Buttons-->
+    <ul class="nav navbar-nav navbar-right">
+    <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
   </div>
 </nav>
 	<br>

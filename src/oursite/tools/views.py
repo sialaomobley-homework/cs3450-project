@@ -11,19 +11,25 @@ def homepage(request):
 
 class BlogView(generic.ListView):
     template_name = 'tools/blog.html'
-    context_object_name = 'blog_list'
+    context_object_name = 'all_blog_list'
 
     def get_queryset(self):
         return Blog.objects.order_by('-date')
 
 class EntryView(generic.DetailView):
     model = Blog
-    template_name = 'tools/blog/entry.html'
+    template_name = 'tools/entry.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['comments'] = Comment.objects.filter(blog = self.get_object())
         return context
+
+
+def blogtest(request):
+    blog1 = Blog.objects.create(title = "new post", author = 'NA', content = 'content of blog +')
+    template = loader.get_template('tools/blog.html')
+    return redirect('blog')
 
 def tools(request):
     tools_list = Tool.objects.order_by('name')

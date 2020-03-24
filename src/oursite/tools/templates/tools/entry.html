@@ -4,9 +4,31 @@
         {% load static %}
         <meta charset="utf-8"/>
         <link rel="stylesheet" href = "{% static 'tools/style.css' %}">
-        <title>Git Cheat Sheet</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
-
+<!--header-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Swift-Taylor Tool Co-Op</a>
+      </div>
+      <!--Navbar links-->
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="{% url 'homepage' %}">Home</a></li>
+        <li><a href="{% url 'tools' %}">Tools</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'contact' %}">Contact</a></li>
+      <li><a href="{% url 'blog' %}">Blog</a></li>
+      </ul>
+      <!--User Management Buttons-->
+      <ul class="nav navbar-nav navbar-right">
+      <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </nav>
     <body>
         
 
@@ -16,32 +38,7 @@
         {{object.content}}
 
         <br>
-        <h1>Comments:</h1>
-        {% if comments %}
-
-            <ul>
-                {% for cm in comments %}
-            <li>
-                {{cm.author}} SAYS:
-               <p>{{cm.content}}</p>
-            </li>
-            {% endfor %}
-        </ul>
-        {% else %}
-            <p>No comments.</p>
-        {% endif %} 
         
-        <form action="{% url 'postcomment' object.id%}"method="post">
-            {% csrf_token %}
-            Write comment:<br>
-            <input type="text" name="content"><br>
-            Nickname:<br>
-            <input type="text" name="nickname"><br>
-            E-mail:<br>
-            <input type="text" name= "email"><br>
-            <input type="submit" value="Post">
-        </form>
-
     </body>
 
 </html>
