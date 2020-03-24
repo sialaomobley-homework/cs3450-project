@@ -1,13 +1,15 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Contact Us</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'tools/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="wood-background">
 <!--header-->
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -31,11 +33,13 @@
 </nav>
 	<br>
 	<br>
-	<h1>Contact Us</h1>
+    <div class="opaque-container">
+	<h1 style="text-align:left;">Contact Us</h1>
     <p>Phone Number: (435)-123-4567</p>
     <p>Email: <a href = "mailto: swifttaylortoolcoop@gmail.com">swifttaylortoolcoop@gmail.com</a></p>
     <p>Address: Old Main Hill, Logan, UT 84321</p>
     <p>Mailing: 1234 Old Main Hill, Logan, UT 84322-0105</p>
+    </div>
 <!--footer-->
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="container">

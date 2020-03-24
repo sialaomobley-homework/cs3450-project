@@ -1,13 +1,15 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>About Us</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'tools/style.css' %}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="wood-background">
 <!--header-->
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -31,12 +33,14 @@
 </nav>
 	<br>
 	<br>
+    <div class="opaque-container">
     <h1>About Us</h1>
     <p>Here at Swift Taylor, we rent tools to people. The Swift Taylor Tool Co-op is a site where you rent tools.
         More information about renting tools. Tools are fun to rent. Want to rent a tool? Rent it on this site.
         Thats what the site if for. Its for renting tools. If you want to rent tools, rent them from the Swift Taylor
         Tool Co-op. We are still building this site so I don't know what to put here. Just pretend this is a real
         about page.</p>
+    </div>
 <!--footer-->
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="container">

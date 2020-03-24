@@ -1,4 +1,60 @@
-h1 {text-align: center;}
+h1 {
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+p {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.wood-background {
+    background-image: url("https://www.patternpictures.com/wp-content/uploads/Light-wood-background-texture-with-subtle-cracks-patternpictures-1113-973x646.jpg");
+    background-color: gray;
+    background-blend-mode: screen;
+}
+
+.opaque-container {
+    background: rgba(0, 0, 0, 0.6);
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 18px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 100%;
+    width: 100vw;
+}
+
+.opaque-container h1 {
+    color: white;
+}
+
+.opaque-container h3 {
+    color: white;
+    text-align: center;
+    padding-right: 150px;
+}
+
+.opaque-container p {
+    color: white;
+}
+
+.opaque-container legend {
+    color: white;
+}
+
+.opaque-container li {
+    color: white;
+}
+
+.opaque-container small {
+    color: lightgray;
+}
 
 .grid-container {
     display: grid;

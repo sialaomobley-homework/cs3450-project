@@ -1,7 +1,32 @@
 <!DOCTYPE html>
 {% load static %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'tools/style.css' %}">
 
-<div class="content-section">
+<body class="wood-background">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Swift-Taylor Tool Co-Op</a>
+    </div>
+    <!--Navbar links-->
+    <ul class="nav navbar-nav">
+      <li><a href="{% url 'homepage' %}">Home</a></li>
+      <li><a href="{% url 'tools' %}">Tools</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+    <li><a href="{% url 'contact' %}">Contact</a></li>
+    <li><a href="{% url 'blog' %}">Blog</a></li>
+    </ul>
+    <!--User Management Buttons-->
+    <ul class="nav navbar-nav navbar-right">
+    <li class="active"><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="content-section opaque-container" style="padding-top:10px;">
 	<form method = "POST">
 		{% csrf_token %}
 		<fieldset class="form-group">
@@ -18,3 +43,4 @@
 		</small>
 	</div>
 </div>
+</body>

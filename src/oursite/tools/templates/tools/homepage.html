@@ -6,10 +6,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'tools/style.css' %}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="wood-background">
 
 <!--header-->
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -47,22 +48,22 @@
     <div class="carousel-inner">
       <div class="item active">
         <img src="{% static 'tools/tools.jpg' %}" alt="Tools" style="width:100%;">
-		  <div class="carousel-caption">
-		    <p>We have a wide selection of tools.</p>
+		  <div class="opaque-container">
+		    <h3>We have a wide selection of tools.</h3>
       </div>
       </div>
 
       <div class="item">
         <img src="{% static 'tools/gardening.jpg' %}" alt="Gardening" style="width:100%;">
-		  <div class="carousel-caption">
-		    <p>Here is one of our tools being used in the community.</p>
+		  <div class="opaque-container">
+		    <h3>Here is one of our tools being used in the community.</h3>
 			</div>
       </div>
     
       <div class="item">
         <img src="{% static 'tools/renovation.jpg' %}" alt="Renovation" style="width:100%;">
-			  		  <div class="carousel-caption">
-		    <p>No matter the job, we have the tools to help you get it done.</p>
+			  		  <div class="opaque-container">
+		    <h3>No matter the job, we have the tools to help you get it done.</h3>
 			</div>
       </div>
 
