@@ -20,7 +20,8 @@ from tools import views as tools_views
 
 urlpatterns = [
 	path('admin/', admin.site.urls),
-    path('', include('tools.urls')),
+    path('', tools_views.homepage, name='homepage'),
+    path('toolview/', include('tools.urls')),
     path('register/', user_views.register, name='register'),
     path('contact/', tools_views.contact, name='contact'),
     path('about/', tools_views.about, name='about',)
