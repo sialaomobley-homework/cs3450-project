@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href = "{% static 'tools/style.css' %}">
+        <title>Git Cheat Sheet</title>
+    </head>
+
+    <body>
+        
+
+
+        <h1>{{object.title}}</h1><br>
+        <p>posted {{object.date}}</p><br>
+        {{object.content}}
+
+        <br>
+        <h1>Comments:</h1>
+        {% if comments %}
+
+            <ul>
+                {% for cm in comments %}
+            <li>
+                {{cm.author}} SAYS:
+               <p>{{cm.content}}</p>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <p>No comments.</p>
+        {% endif %} 
+        
+        <form action="{% url 'postcomment' object.id%}"method="post">
+            {% csrf_token %}
+            Write comment:<br>
+            <input type="text" name="content"><br>
+            Nickname:<br>
+            <input type="text" name="nickname"><br>
+            E-mail:<br>
+            <input type="text" name= "email"><br>
+            <input type="submit" value="Post">
+        </form>
+
+    </body>
+
+</html>

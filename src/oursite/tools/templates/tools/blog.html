@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href = "{% static 'tools/style.css' %}">
+        <title>Community Blog</title>
+    </head>
+
+    <body>
+        <!-- <a href="{% url 'about' %}">About</a> | <a href = "{% url 'index' %}">Front Page</a> -->
+        
+        {% if all_blog_list %}
+            
+            <ul>
+                {% for blog in all_blog_list %}
+            <li>
+                <a href="{% url 'entry' blog.id%}">{{ blog.title }}</a> ({{blog.author}})
+                <br>
+                {{blog.content|truncatewords:200}}
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <p>No posts.</p>
+        {% endif %} 
+    </body>
+
+</html>
