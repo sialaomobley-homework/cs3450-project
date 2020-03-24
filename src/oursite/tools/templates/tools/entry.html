@@ -16,11 +16,11 @@
       </div>
       <!--Navbar links-->
       <ul class="nav navbar-nav">
-        <li class="active"><a href="{% url 'homepage' %}">Home</a></li>
+        <li><a href="{% url 'homepage' %}">Home</a></li>
         <li><a href="{% url 'tools' %}">Tools</a></li>
         <li><a href="{% url 'about' %}">About</a></li>
       <li><a href="{% url 'contact' %}">Contact</a></li>
-      <li><a href="{% url 'blog' %}">Blog</a></li>
+      <li class="active"><a href="{% url 'blog' %}">Blog</a></li>
       </ul>
       <!--User Management Buttons-->
       <ul class="nav navbar-nav navbar-right">
@@ -30,7 +30,8 @@
     </div>
   </nav>
     <body>
-        
+    <br>
+	<br> 
 
 
         <h1>{{object.title}}</h1><br>
