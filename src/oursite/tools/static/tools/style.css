@@ -62,3 +62,11 @@ p {
     grid-row-gap: 20px;
     grid-column-gap: 20px;
 }
+
+.tools-container {
+    overflow: auto;
+    float: left;
+    width: 75%;
+    max-height: 750px;
+    padding-left: 50px;
+}

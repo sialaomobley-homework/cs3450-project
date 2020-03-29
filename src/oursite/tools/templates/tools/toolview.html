@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <title>Tool Co-op</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'tools/style.css' %}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -35,29 +35,25 @@
 	<br>
 	<br>
   </div>
-  <h1>Welcome to the Tool Co-op!</h1>
-  <div class="py-5">
-    <div class="container">
+  <h1>Tool Reservation Page</h1>
+    <div class="tools-container" style="display: flex; flex-wrap: wrap;">
     {% if tools_list %}
-      <div class="grid-container">
         {% for tool in tools_list %}
-          <div>
-            <div class="card w-100 h-100">
-              <div class="card-block">
-                <h4 class="card-title">{{ tool.name }}</h4>
-                <p class="card-text p-y-1">{{ tool.description }}</p>
-                <a href="#">Reserve Now</a>
-                <a href="{% url 'tools:tool_view' tool.id %}" style="float: right;">Schedule</a>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="thumbnail">
+              <img src="{{ tool.photo.url }}" class="card-img-top" alt="bootstraplogo">
+              <div class="caption">
+                <h4>{{ tool.name }}</h4>
+                <p>{{ tool.description }}</p>
+                <a href="#" class="btn btn-primary">Reserve Now</a>
               </div>
             </div>
           </div>
         {% endfor %}
-      </div>
     {% else %}
       <p>No tools found</p>
     {% endif %}
     </div>
-  </div>
   <!--footer-->
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="container">
