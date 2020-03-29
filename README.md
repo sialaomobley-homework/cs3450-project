@@ -15,7 +15,7 @@ Django must be hosted on a server to function. During the development process, t
 
 The final product will either be set up to run on an online hosting service or on a server machine to be purchased by the tool rental group and maintained by our team of brilliant, hardworking software engineers. Both options will require a regular fee to be paid by the tool rental group, with the second option including a modest increase to compensate the tireless software developers for their upkeep efforts.
 ## Unit Testing
-On the front end, unit tests will be implemented through the testing framework Jest. 
+On the front end, unit tests will be implemented manually, in its current state all we have needed to test is the styling of the website and that all of our links are functional. Going into the last phase, account creation, tool management, and all other functionalities will be tested by the development team
 ## System Testing
 System testing will be performed through manually attempting to fulfill our listed use cases as well as a set of additional edge cases which will be determined over the course of the testing process. 
 ## Additional Notes
