@@ -32,6 +32,8 @@ urlpatterns = [
     path('blog/blogtest', tools_views.blogtest, name = 'blogtest'),
     path('contact/', tools_views.contact, name='contact'),
     path('about/', tools_views.about, name='about'),
+    path('login/', auth_views.LoginView.as_view(), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
         
 ]
 
