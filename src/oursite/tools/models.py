@@ -18,6 +18,7 @@ class Comment(models.Model):
 class Tool(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=300)
+    photo = models.ImageField(upload_to='img', null=True, blank=True)
 
     def __str__(self):
         return self.name
