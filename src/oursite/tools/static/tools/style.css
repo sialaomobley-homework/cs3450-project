@@ -56,6 +56,21 @@ p {
     color: lightgray;
 }
 
+.register-container {
+    background: rgba(255, 255, 255, 0.7);
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 18px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 100%;
+    width: 100vw;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
