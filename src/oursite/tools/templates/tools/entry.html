@@ -11,25 +11,30 @@
     </head>
 <!--header-->
 <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Swift-Taylor Tool Co-Op</a>
-      </div>
-      <!--Navbar links-->
-      <ul class="nav navbar-nav">
-        <li><a href="{% url 'homepage' %}">Home</a></li>
-        <li><a href="{% url 'tools' %}">Tools</a></li>
-        <li><a href="{% url 'about' %}">About</a></li>
-      <li><a href="{% url 'contact' %}">Contact</a></li>
-      <li class="active"><a href="{% url 'blog' %}">Blog</a></li>
-      </ul>
-      <!--User Management Buttons-->
-      <ul class="nav navbar-nav navbar-right">
-      <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Swift-Taylor Tool Co-Op</a>
     </div>
-  </nav>
+    <!--Navbar links-->
+    <ul class="nav navbar-nav">
+      <li><a href="{% url 'homepage' %}">Home</a></li>
+      <li><a href="{% url 'tools' %}">Tools</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+    <li><a href="{% url 'contact' %}">Contact</a></li>
+    <li><a href="{% url 'blog' %}">Blog</a></li>
+    </ul>
+    <!--User Management Buttons-->
+    <ul class="nav navbar-nav navbar-right">
+    {% if user.is_authenticated %}
+      <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+    {% else %}
+      <li class="active"><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    {% endif %}
+
+    </ul>
+  </div>
+</nav>
     <body>
     <br>
 	<br> 
