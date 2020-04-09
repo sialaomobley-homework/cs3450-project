@@ -3,6 +3,7 @@ from .models import Tool, Blog, Comment
 from django.template import loader
 from django.views import generic
 from django.urls import reverse
+from django import forms
 import datetime
 
 
@@ -28,7 +29,16 @@ class EntryView(generic.DetailView):
 
 def blogtest(request):
     blog1 = Blog.objects.create(title = "new post", author = 'NA', content = 'content of blog +')
-    template = loader.get_template('tools/blog.html')
+    Blog.objects.all().delete()
+    return redirect('blog')
+
+def postcomment(request, **kwargs):
+    contents = request.POST.get("content")
+    nameGiven = request.POST.get("name")
+    titleGiven = request.POST.get("title")
+
+    blognew = Blog.objects.create(title = titleGiven, author = nameGiven, content = contents) 
+
     return redirect('blog')
 
 def tools(request):

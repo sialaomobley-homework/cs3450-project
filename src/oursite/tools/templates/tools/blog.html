@@ -55,7 +55,27 @@
         {% else %}
             <p>No posts.</p>
         {% endif %} 
-	<!--footer-->
+
+        <br/>
+        {% if user.is_authenticated %}
+        New Blog Post: 
+        <form action="{% url 'postcomment' %}"method="post">
+            {% csrf_token %}
+            Title:<br>
+            <input type="text" name="title"><br>
+            Name:<br>
+            <input type="text" name="name"><br>
+            Content:<br>
+            <input type="text" name="content"><br>
+            
+            <input type="submit" value="Post">
+          </form>
+        {% endif %}
+
+
+        
+        
+        <!--footer-->
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="container">
     <p class="nav navbar-nav navbar-left"> Copyright &copy; Swift Taylor Co-Op</p>

@@ -29,6 +29,7 @@ urlpatterns = [
     path('register/', user_views.register, name='register'),
     path('blog/', tools_views.BlogView.as_view(), name = 'blog'),
     path('blog/<int:pk>/', tools_views.EntryView.as_view(), name = 'entry'),
+    path('blog/postcomment/', tools_views.postcomment, name = 'postcomment'),
     path('blog/blogtest', tools_views.blogtest, name = 'blogtest'),
     path('contact/', tools_views.contact, name='contact'),
     path('about/', tools_views.about, name='about'),
