@@ -33,10 +33,19 @@ def blogtest(request):
     return redirect('blog')
 
 
-def postcomment(request, **kwargs):
+def postblog(request, **kwargs):
     contents = request.POST.get("content")
     nameGiven = request.POST.get("name")
     titleGiven = request.POST.get("title")
+
+    if nameGiven == "":
+        nameGiven = "Anonymous"
+
+    if titleGiven == "":
+        titleGiven = "Untitled Post"
+
+    if contents == "":
+        contents = "No content."
 
     blognew = Blog.objects.create(title = titleGiven, author = nameGiven, content = contents) 
 

@@ -46,7 +46,17 @@
 
         <br>
         
-
+        
+        <br>
+        <h2>Staff Comments:</h2>
+            <ul>
+                {% for cm in comments %}
+            <li>
+                {{cm.author}} SAYS:
+               <p>{{cm.content}}</p>
+            </li>
+            {% endfor %}
+        </ul>
         
         
 	<!--footer-->

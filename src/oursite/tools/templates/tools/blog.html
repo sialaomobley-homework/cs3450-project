@@ -37,43 +37,59 @@
   </div>
 </nav>
 	<body>
-	<br/>
-	<br/>
-    <br/>
+  <div class = "scrollable">
 
-        {% if all_blog_list %}
-            
-            <ul>
-                {% for blog in all_blog_list %}
-            <li>
-                <a href="{% url 'entry' blog.id%}">{{ blog.title }}</a> ({{blog.author}})
-                <br/>
-                {{blog.content|truncatewords:200}}
-            </li>
-            {% endfor %}
-        </ul>
-        {% else %}
-            <p>No posts.</p>
-        {% endif %} 
-
+      <br/>
+      <br/>
         <br/>
-        {% if user.is_authenticated %}
-        New Blog Post: 
-        <form action="{% url 'postcomment' %}"method="post">
-            {% csrf_token %}
-            Title:<br>
-            <input type="text" name="title"><br>
-            Name:<br>
-            <input type="text" name="name"><br>
-            Content:<br>
-            <input type="text" name="content"><br>
-            
-            <input type="submit" value="Post">
-          </form>
-        {% endif %}
+    
+            {% if all_blog_list %}
+                
+                <ul>
+                    {% for blog in all_blog_list %}
+                <li>
+                    <a href="{% url 'entry' blog.id%}">{{ blog.title }}</a> ({{blog.author}})
+                    <br/>
+                    {{blog.content|truncatewords:200}}
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+                <p>No posts.</p>
+            {% endif %} 
+    
+            <br/>
+            {% if user.is_authenticated %}
+            New Blog Post: 
+            <form action="{% url 'postblog' %}"method="post">
+                {% csrf_token %}
+                Title:<br>
+                <input type="text" name="title"><br>
+                Name:<br>
+                <input type="text" name="name"><br>
+                Content:<br>
+                <input type="textarea" name="content"><br>
+                
+                <input type="submit" value="Post">
+              </form>
+            {% endif %}
+    
+            <form action="{% url 'postblog' %}"method="post">
+              {% csrf_token %}
+              Title:<br>
+              <input type="text" name="title"><br>
+              Name:<br>
+              <input type="text" name="name"><br>
+              Content:<br>
+              <textarea class="input" rows = "15" cols = "50" name = "content"></textarea>
+    
+              <input type="submit" value="Post">
+            </form>
 
-
-        
+  </div>
+	
+      <br><br/>
+      <br><br/>
         
         <!--footer-->
 <nav class="navbar navbar-inverse navbar-fixed-bottom">

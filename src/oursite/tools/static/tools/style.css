@@ -85,3 +85,7 @@ p {
     max-height: 750px;
     padding-left: 50px;
 }
+
+.scrollable{
+    overflow-y:auto;
+}
