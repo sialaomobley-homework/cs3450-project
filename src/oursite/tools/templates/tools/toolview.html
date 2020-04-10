@@ -50,7 +50,9 @@
               <div class="caption">
                 <h4>{{ tool.name }}</h4>
                 <p>{{ tool.description }}</p>
-                <a href="#" class="btn btn-primary">Reserve Now</a>
+                {%if user.is_authenticated %}
+                <button class="btn btn-primary">Reserve Now</button>
+                {% endif %}
               </div>
             </div>
           </div>
@@ -58,6 +60,15 @@
     {% else %}
       <p>No tools found</p>
     {% endif %}
+    </div>
+    <div class="tools-reserve">
+        {% if user.is_authenticated %}
+        {% if user.tool_set.all %}
+          {% for tool in user.tool_set.all %}
+          <div>{{ tool.name }}</div>
+          {% endfor %}
+        {% endif %}
+        {% endif %}
     </div>
   <!--footer-->
 <nav class="navbar navbar-default navbar-fixed-bottom">

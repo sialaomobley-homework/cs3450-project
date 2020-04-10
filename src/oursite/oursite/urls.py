@@ -24,8 +24,7 @@ from . import settings
 urlpatterns = [
 	path('admin/', admin.site.urls),
     path('', tools_views.homepage, name='homepage'),
-    path('toolview/', include('tools.urls')),
-    path('tools', tools_views.tools, name = 'tools'),
+    path('tools/', tools_views.tools, name = 'tools'),
     path('register/', user_views.register, name='register'),
     path('blog/', tools_views.BlogView.as_view(), name = 'blog'),
     path('blog/<int:pk>/', tools_views.EntryView.as_view(), name = 'entry'),
