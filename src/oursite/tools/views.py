@@ -73,9 +73,18 @@ def tools(request):
             pass # do nothing
         else:
             tool_mod = Tool.objects.get(name=tool)
-            tool_mod.borrower = User.objects.get(username=user)
-            tool_mod.status = 'r'
-            tool_mod.save()
+            if tool_mod.borrower is None:
+                name = ""
+            else:
+                name = tool_mod.borrower.username
+            if name == user:
+                tool_mod.borrower = None
+                tool_mod.status = 'a'
+                tool_mod.save()
+            else:
+                tool_mod.borrower = User.objects.get(username=user)
+                tool_mod.status = 'r'
+                tool_mod.save()
         return HttpResponseRedirect(reverse('tools'))
     return render(request, 'tools/toolview.html', context)
 
