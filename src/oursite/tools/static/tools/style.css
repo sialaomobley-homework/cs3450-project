@@ -89,3 +89,21 @@ p {
 .scrollable{
     overflow-y:auto;
 }
+
+.reserve-div, .user-borrowed, .user-cart{
+    float: left;
+    width: 23%;
+    border: 5px solid gray;
+    border-radius: 15px;
+    padding-top: 15px;
+    padding-left: 15px;
+    margin: 10px;
+}
+
+.user-cart, .user-borrowed {
+    height: 300px;
+}
+
+.reserve-div {
+    height: 75px;
+}

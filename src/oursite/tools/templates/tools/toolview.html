@@ -44,32 +44,63 @@
     <div class="tools-container" style="display: flex; flex-wrap: wrap;">
     {% if tools_list %}
         {% for tool in tools_list %}
+          {% if tool.status == 'a' %}
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="thumbnail">
               <img src="{{ tool.photo.url }}" class="card-img-top" alt="bootstraplogo">
               <div class="caption">
                 <h4>{{ tool.name }}</h4>
                 <p>{{ tool.description }}</p>
-                {%if user.is_authenticated %}
-                <button class="btn btn-primary">Reserve Now</button>
-                {% endif %}
               </div>
             </div>
           </div>
+          {% endif %}
         {% endfor %}
     {% else %}
       <p>No tools found</p>
     {% endif %}
     </div>
-    <div class="tools-reserve">
+    <div class="reserve-div">
+        {% if user.is_authenticated %}
+          <form action="#" method="POST">
+            {% csrf_token %}
+            <label for="tool">Tool name:</label>
+            <input type="text" id="tool" name="tool" placeholder="Which tool would you like?"/>
+            <input type="submit" value="submit">
+          </form>
+        {% else %}
+        <h2>Login to Reserve Tools</h2>
+        {% endif %}
+    </div>
+    <div class="user-cart">
+        <h2>Reserved</h2>
         {% if user.is_authenticated %}
         {% if user.tool_set.all %}
           {% for tool in user.tool_set.all %}
+          {% if tool.status == 'r' %}
           <div>{{ tool.name }}</div>
+          {% endif %}
           {% endfor %}
+        {% else %}
+          <div>No tools reserved</div>
         {% endif %}
         {% endif %}
     </div>
+    <div class="user-borrowed">
+        <h2>Checked Out</h2>
+      {% if user.is_authenticated %}
+      {% if user.tool_set.all %}
+        {% for tool in user.tool_set.all %}
+        {% if tool.status == 'c' %}
+        <div>{{ tool.name }}</div>
+        {% endif %}
+        {% endfor %}
+      {% else %}
+        <div>No tools checked out</div>
+      {% endif %}
+      {% endif %}
+    </div>
+
   <!--footer-->
 <nav class="navbar navbar-inverse navbar-fixed-bottom">
   <div class="container">

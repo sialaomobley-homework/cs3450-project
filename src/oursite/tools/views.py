@@ -56,12 +56,27 @@ def reserve(request):
     if request.method == 'POST':
         tool = get_object_or_404(Tool, pk=tool)
         tool.borrower = User.objects.get(pk=user)
-    return HttpResponseRedirect(reverse('tools'))
+        return HttpResponseRedirect(reverse('tools'))
+    return render(request, 'tools/toolview.html', context)
 
 
 def tools(request):
     tools_list = Tool.objects.order_by('name')
     context = {'tools_list': tools_list}
+    if request.method == 'POST':
+        tool = request.POST['tool']
+        user = None
+        if request.user.is_authenticated:
+            user = request.user.username
+        results = Tool.objects.filter(name=tool).count()
+        if results <= 0:
+            pass # do nothing
+        else:
+            tool_mod = Tool.objects.get(name=tool)
+            tool_mod.borrower = User.objects.get(username=user)
+            tool_mod.status = 'r'
+            tool_mod.save()
+        return HttpResponseRedirect(reverse('tools'))
     return render(request, 'tools/toolview.html', context)
 
 
