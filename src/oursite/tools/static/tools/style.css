@@ -71,6 +71,23 @@ p {
     width: 100vw;
 }
 
+.blog {
+    padding: 20px;
+    padding-left: 35px;
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+.blog p{
+    color: white;
+}
+
+.post {
+    background: white;
+    padding: 20px;
+    width: 95%;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

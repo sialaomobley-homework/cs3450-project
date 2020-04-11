@@ -36,18 +36,19 @@
     </ul>
   </div>
 </nav>
-	<body>
+	<body class="wood-background blog">
   <div class = "scrollable">
 
       <br/>
       <br/>
         <br/>
+            <h1>Blog</h1>
     
             {% if all_blog_list %}
                 
                 <ul>
                     {% for blog in all_blog_list %}
-                <li>
+                <li class="post">
                     <a href="{% url 'entry' blog.id%}">{{ blog.title }}</a> ({{blog.author}})
                     <br/>
                     {{blog.content|truncatewords:200}}
@@ -60,8 +61,8 @@
     
             <br/>
             {% if user.is_authenticated %}
-            New Blog Post: 
-            <form action="{% url 'postblog' %}"method="post">
+            New Blog Post:
+            <form action="{% url 'postblog' %}"method="post" class="blog">
                 {% csrf_token %}
                 Title:<br>
                 <input type="text" name="title"><br>
@@ -69,12 +70,12 @@
                 <input type="text" name="name"><br>
                 Content:<br>
                 <input type="textarea" name="content"><br>
-                
+
                 <input type="submit" value="Post">
               </form>
             {% endif %}
-    
-            <form action="{% url 'postblog' %}"method="post">
+
+            <form action="{% url 'postblog' %}"method="post" class="blog">
               {% csrf_token %}
               Title:<br>
               <input type="text" name="title"><br>
@@ -82,7 +83,7 @@
               <input type="text" name="name"><br>
               Content:<br>
               <textarea class="input" rows = "15" cols = "50" name = "content"></textarea>
-    
+
               <input type="submit" value="Post">
             </form>
 
